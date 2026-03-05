@@ -1,0 +1,62 @@
+@import "tailwindcss";
+
+@theme {
+  --animate-shimmer: shimmer 2s infinite;
+  --color-brand-blue: #2563eb;
+
+  @keyframes shimmer {
+    from { transform: translateX(-100%); }
+    to { transform: translateX(100%); }
+  }
+}
+@keyframes scroll {
+  from { transform: translateX(0); }
+  to { transform: translateX(-50%); }
+}
+
+.animate-marquee {
+  display: flex;
+  width: max-content;
+  animation: scroll 30s linear infinite;
+}
+
+.animate-marquee:hover {
+  animation-play-state: paused; /* Stops scrolling when someone hovers to read */
+}
+.mask-fade {
+  mask-image: linear-gradient(
+    to right,
+    transparent,
+    black 15%,
+    black 85%,
+    transparent
+  );
+}
+.reveal-card {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: all 0.8s ease-out;
+}
+
+.reveal-card.active {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+  /* 1. Initial state of the cards (hidden and slightly down) */
+  .reveal-card {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: all 0.7s cubic-bezier(0.2, 0.8, 0.2, 1);
+  }
+
+  /* 2. State when the card becomes visible */
+  .reveal-card.active {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  /* 3. Glassmorphism hover tweak */
+  .group:hover .blur-3xl {
+    opacity: 1 !important;
+  }
