@@ -12,22 +12,30 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="https://unpkg.com/@tailwindcss/browser@4"></script>
     <title>FH Academy | IGCSE Expert Coaching</title>
-    <style>
-        html {
-    scroll-behavior: smooth;
-    }
+    <style type="text/tailwindcss">
+        /* This line is REQUIRED for v4 to initialize properly in some environments */
+        @theme {
+            --color-blue-600: #2563eb;
+            --color-cyan-400: #22d3ee;
+        }
+
+        /* Standard CSS works here too */
+        html { scroll-behavior: smooth; }
+        
         .reveal-card {
-        opacity: 0;
-        transform: translateY(30px);
-        transition: all 0.8s cubic-bezier(0.2, 0.8, 0.2, 1);
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s cubic-bezier(0.2, 0.8, 0.2, 1);
         }
+        
         .reveal-card.active {
-        opacity: 1;
-        transform: translateY(0);
+            opacity: 1;
+            transform: translateY(0);
         }
+
         .glass-nav {
-        backdrop-filter: blur(12px);
-        -webkit-backdrop-filter: blur(12px);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
         }
     </style>
     
